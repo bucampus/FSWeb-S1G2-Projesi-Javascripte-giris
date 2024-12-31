@@ -37,6 +37,11 @@ Aşağıdakileri yap:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birinciDeger = 0;
+let ikinciDeger = 0;
+if (birinciDeger > ikinciDeger) {
+  birinciDeger = 1;
+} console.log(birinciDeger);
 
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
@@ -49,6 +54,9 @@ Aşağıdakileri yap:
    İPUCU: Number metoduna bakabilirsin
 */
 
+let metin = "1999";
+let sayi = Number(metin);
+console.log(sayi);
 /*
 Görev 1d - Çarpma
  
@@ -58,9 +66,10 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamla:
    3. console.log(carpma(7,4)) ile yazdığın fonsiyonu test edin. Console'da sonucu 28 olarak görmelisin.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
+function carpma(a, b) {
+  return a * b;
+};
+console.log(carpma(7, 4));
 
 /* Görev 2 : Köpeğin Yaşı */
 
@@ -71,121 +80,97 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
+function kopeginYasi(yas) {
+   return yas * 7;
+};
 
-/* Görev 3 */
-/*
-Aşağıdakileri oyun isimli fonksiyonu kullanarak yap.
-1. 2 argüman alın: oyuncunun tercihini alan bir string değer: "Taş", "Kağıt" veya "Makas" 
-   ve bilgisayarınkini alan: "Taş", "Kağıt" veya "Makas"
-   Not: string değerlerin yazımına dikkat! İlk harf büyük ve türkçe karakterler kullanarak. Yoksa testi geçemez.
-2. Aşağıdaki oyun kurallarına göre oyuncunun kazanıp kazanamadığını veya berabere kalıp kalmadığını dönün - (uygulamanın oluşturduğu çıktı tam olarak aşağıdakinin aynısı olmalı)
- - kazanma durumunda "Kazandın!" dönmeli
- - kaybetme durumunda "Kaybettin!" dönmeli
- - beraberlikte "Beraberlik" dönmeli
-
-OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
+/* Görev 3
 */
 
 function oyun(oyuncu, bilgisayar) {
-  /*buraya kodunu yazabilirsin*/
+  function bilgisayarinSecimi() {
+    let bilgisayarSayi = Math.floor((Math.random() * 3) + 1);
+    if (bilgisayarSayi === 1) {
+      bilgisayar === "Taş";
+    } else if (bilgisayarSayi === 2) {
+      bilgisayar === "Kağıt";
+    } else {
+      bilgisayar === "Makas";
+    } return bilgisayar;
+  }
 }
-
-// Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
-/*
-Öncelikle aşağıdakileri yap:
-1. Bilgisayarın seçimini rastgele oluşturacağım bir fonksiyon tanımla. Örn: 
-   function bilgisayarinSecimi() {
-   
-   }
-2. Fonsiyonun içinde bilgisayarın seçimi için bir değişken tanımla
-3. Math.random'ı kullanarak bilgisayarın seçimini oluşturun (Math.random 0-1 arasında bir değer verecek)
-4. Bu rastgele değeri "Taş", "Kağıt" veya "Makas"a dönüştüren bir koşul oluşturun
-5. Oluşan değeri geri dönün
-
-Şimdi kendi seçtiğin bir seçime karşı bilgisayarın rastgele oluşturduğu seçimi yukarıda yazdığın oyun fonsiyonu ile oynayın ve sonucu console'a yazdırın.
-Örn: console.log(oyun("Makas",bilgisayarinSecimi()))
-*/
+let oyuncu = prompt("Taş, Kağıt veya Makas seç.");
+if (
+   (oyuncu === "Taş" && bilgisayar === "Makas") ||
+   (oyuncu === "Makas" && bilgisayar === "Kağıt") ||
+   (oyuncu === "Kağıt" && bilgisayar === "Taş")
+) {
+  return "Kazandın!";
+} else if (oyuncu === bilgisayar) {
+  return "Beraberlik";
+} else {
+  return "Kaybettin!"
+}
+console.log(oyun("Makas", bilgisayarinSecimi()));
 
 /* Görev 4 : Metrik Dönüştürücü */
 
-//Görev 4a - Kilometreden Mil
-/*
-Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamla:
-1. Kilometre değerini argüman olarak alın.
-2. Aldığın bu değeri Mil'e dönüştürün
-3. Mil değerini geri dönün
-*/
-
-function milDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km) {
+  let mil = km * 1.609344;
+  return mil;
 }
 
 //Görev 4b - Santimetreden Feet
-/*
-Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
-1. Santimetre değerini argüman olarak alın.
-2. Aldığın bu değeri feet'e dönüştürün
-3. feet değerini geri dönün
 
-Google'da arama ipucu: "feet cm dönüştürme"
-*/
-
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm) {
+  let feet = cm * 0.0328084;
+  return feet;
 }
 
-/* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
-
-/*
-Aşağıdakileri cocukSarkisi fonksiyonunda yap:
-1. Başlangıçta var olan maymun sayısını alın.
-2. cocukSarkisi fonksiyonu aşağıdaki satırı sadece 1 kere yazacak şekilde kodunuzu yazın:
-
-    "{sayı} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"
-
-3. Bu fonksiyonun dışında bir yerde, maymun sayısının her seferinde 1 azaldığı ve maymun sayısı 1 olana kadar devem eden bir döngü oluşturun. 
-4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
+/* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
+function cocukSarkisi(sayi) {
+  for (let i = 3; i > 1; i--)
+  return `${sayi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"`;
+};
+console.log(cocukSarkisi());
 
 /* Görev 6 : Not Hesaplayıcı */
 
-/*
-Aşağdakileri notHesapla fonksiyonunda yap.
-1. 100'lük sistemde bir sınav sonucu alın.
-2. Aşağıdaki tabloya göre notu dönün.
-
- 90-100 arasında 'A aldın' 
- 80-89 arasında 'B aldın'
- 70-79 arasında 'C aldın'
- 60-69 arasında 'D aldın'
- daha aşağıda 'F aldın'
- dönün
-*/
-
-function notHesapla(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function notHesapla(not) {
+  if (not >= 90 && not <= 100) {
+    return "A aldın";
+  } else if (not >= 80) {
+    return "B aldın";
+  } else if (not >= 70) {
+    return "C aldın";
+  } else if (not >= 60) {
+    return "D aldın";
+  } else {
+    return "F aldın";
+  }
 }
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
 
-/*
-Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
-1. Bir argüman alın, string olsun.
-2. Bu string'in içindeki sesli harfleri sayın ve sayısını geri dönün.  (hem büyük hem de küçük harflerin sayısını dönmeli).
-
-İPUCU - yarın işlenecek array(dizi) konusunu önden araştırman gerekecek. (https://www.w3schools.com/js/js_arrays.asp)
-İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
-*/
-
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(metin) {
+  for (let i = 0; i < metin.length; i++) {
+    let kucuk = metin.toLowerCase();
+    let bos = 0;
+    if (
+    (metin(i) === "a") ||
+    (metin(i) === "e") ||
+    (metin(i) === "ı") ||
+    (metin(i) === "i") ||
+    (metin(i) === "o") ||
+    (metin(i) === "ö") ||
+    (metin(i) === "u") ||
+    (metin(i) === "ü")
+    ) {
+      bos = bos + 1;
+    } return bos;
+  }
 }
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
